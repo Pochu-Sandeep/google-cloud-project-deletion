@@ -2,7 +2,7 @@ from google.oauth2 import service_account
 
 from googleapiclient import discovery
 
-from google.cloud import storage
+#from google.cloud import storage
 
 credentials = service_account.Credentials.from_service_account_file(
            "/Users/i500831/Downloads/sap-coe-devops-test.json")
@@ -13,4 +13,4 @@ resource_manager_service = discovery.build('cloudresourcemanager', 'v1', credent
 
 service_usage_service = discovery.build('serviceusage', 'v1', credentials=credentials)
 
-storage_client = storage.Client.from_service_account_json("/Users/i500831/Downloads/sap-coe-devops-test.json")
+#storage_client = storage.Client.from_service_account_json("/Users/i500831/Downloads/sap-coe-devops-test.json")
