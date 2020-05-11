@@ -5,7 +5,7 @@ from googleapiclient import discovery
 #from google.cloud import storage
 
 credentials = service_account.Credentials.from_service_account_file(
-           "/Users/i500831/Downloads/sap-coe-devops-test.json")
+           "GOOGLE_APPLICATION_CREDENTIALS")
 
 service = discovery.build('compute', 'v1', credentials=credentials)
 
