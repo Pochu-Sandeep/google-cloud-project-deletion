@@ -1,11 +1,16 @@
+import os
+
+import sys
+
 from google.oauth2 import service_account
 
 from googleapiclient import discovery
 
 #from google.cloud import storage
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = sys.argv[1]
 
 credentials = service_account.Credentials.from_service_account_file(
-           "/home/sandeep_pochu/sap-coe-devops-test.json")
+           "os.environ['GOOGLE_APPLICATION_CREDENTIALS']")
 
 service = discovery.build('compute', 'v1', credentials=credentials)
 
