@@ -14,7 +14,7 @@ class main:
 
             project_id = projects
 
-            print("Checking for VM's, Disks, VPN and Firewalls in project " + project_id)
+            print("Checking whether services existed or not in project" + project_id)
 
             from gcp_project_deletion.compute import compute
 
