@@ -44,11 +44,11 @@ class main:
 
             vpn_exist = obj_vpn.vpn_list(project_id)
 
-            #from gcp_project_deletion.storage import storage
+            from gcp_project_deletion.storage import storage
 
-            #obj_storage = storage()
+            obj_storage = storage()
 
-            #storage_exist = obj_storage.storage_list(project_id)
+            storage_exist = obj_storage.storage_list(project_id)
 
             from gcp_project_deletion.liens import liens
 
