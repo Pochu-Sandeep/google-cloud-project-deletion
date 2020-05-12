@@ -7,10 +7,9 @@ from google.oauth2 import service_account
 from googleapiclient import discovery
 
 #from google.cloud import storage
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = sys.argv[1]
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = sys.argv[1]
 
-credentials = service_account.Credentials.from_service_account_file(
-           "os.environ['GOOGLE_APPLICATION_CREDENTIALS']")
+credentials = service_account.Credentials.from_service_account_file(sys.argv[1])
 
 service = discovery.build('compute', 'v1', credentials=credentials)
 
