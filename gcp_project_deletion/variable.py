@@ -4,6 +4,8 @@ from google.oauth2 import service_account
 
 from googleapiclient import discovery
 
+from google.cloud import storage
+
 credentials = service_account.Credentials.from_service_account_file(sys.argv[1])
 
 service = discovery.build('compute', 'v1', credentials=credentials)
