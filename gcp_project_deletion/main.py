@@ -6,8 +6,6 @@ class main:
 
     def services_exist(self):
         
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = sys.argv[1]
-        
         projects = os.getenv("Project_id")
 
         projects_list = projects.split(",")
