@@ -5,8 +5,6 @@ import sys
 class main:
 
     def services_exist(self):
-
-        #projects = input("Enter project-id/project-id's for deletion :")
         
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = sys.argv[1]
         
