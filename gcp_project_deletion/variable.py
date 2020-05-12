@@ -12,4 +12,4 @@ resource_manager_service = discovery.build('cloudresourcemanager', 'v1', credent
 
 service_usage_service = discovery.build('serviceusage', 'v1', credentials=credentials)
 
-#storage_client = storage.Client.from_service_account_json(sys.argv[1])
+storage_client = storage.Client.from_service_account_json(sys.argv[1])
