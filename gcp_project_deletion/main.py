@@ -61,6 +61,8 @@ class main:
             if (instance_exist | disks_exist | firewall_exist | vpn_exist | liens_exist | endpoint_exist):
 
                 print("Project "+project_id+" will not  be deleted")
+                
+                exit 1
 
             else:
 
