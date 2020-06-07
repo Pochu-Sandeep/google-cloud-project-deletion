@@ -74,7 +74,6 @@ class main:
 
                 print("Project "+project_id+" is now shutdown")
 
-
 obj_main = main()
 
 obj_main.services_exist()
