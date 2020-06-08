@@ -86,16 +86,8 @@ class main:
             project_state = project_status_response.get('lifecycleState')
 
             if project_state == 'ACTIVE':
-                
-                print("Project state was "+project_state)
 
                 sys.exit(-1)
-
-            else:
-                
-                print(project_state)
-
-                print("Requested projects was deleted successfully")
 
 obj_main = main()
 
