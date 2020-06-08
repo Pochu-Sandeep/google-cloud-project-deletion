@@ -66,7 +66,7 @@ class main:
 
                 from gcp_project_deletion.variable import resource_manager_service
 
-                request = resource_manager_service.projects().delete(projectId=project_id)
+                request = resource_manager_service_project.projects().delete(projectId=project_id)
 
                 request.execute()
 
@@ -76,7 +76,7 @@ class main:
 
             project_id = projects
 
-            project_status_request = resource_manager_service_project.projects().get(projectId=project_id)
+            project_status_request = resource_manager_service.projects().get(projectId=project_id)
 
             project_status_response = project_status_request.execute()
 
