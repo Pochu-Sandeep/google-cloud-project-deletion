@@ -3,12 +3,6 @@ import os
 import sys
 
 class main:
-    
-    from gcp_project_deletion.variable import discovery
-    
-    from gcp_project_deletion.variable import credentials
-    
-    project_resource_manager_service = discovery.build('cloudresourcemanager', 'v1', credentials=credentials)
 
     def services_exist(self):
 
@@ -81,8 +75,10 @@ class main:
         for projects in projects_list:
 
             project_id = projects
+            
+            from gcp_project_deletion.variable import resource_manager_service
 
-            project_status_request = main.project_resource_manager_service.projects().get(projectId=project_id)
+            project_status_request = resource_manager_service.projects().get(projectId=project_id)
 
             project_status_response = project_status_request.execute()
 
