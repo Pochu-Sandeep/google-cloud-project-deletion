@@ -91,7 +91,7 @@ class main:
                 
             else:
                 
-                print(project_id+" is deleted now)
+                print(project_id+" is deleted now")
 
 obj_main = main()
 
