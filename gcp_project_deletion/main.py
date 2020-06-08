@@ -92,6 +92,8 @@ class main:
                 sys.exit(-1)
 
             else:
+                
+                print(project_state)
 
                 print("Requested projects was deleted successfully")
 
