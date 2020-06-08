@@ -5,7 +5,7 @@ import sys
 class main:
 
     def services_exist(self):
-        
+
         projects = os.getenv("Project_id")
 
         projects_list = projects.split(",")
@@ -60,9 +60,7 @@ class main:
 
             if (instance_exist | disks_exist | firewall_exist | vpn_exist | liens_exist | endpoint_exist):
 
-                print("Project "+project_id+" will not  be deleted")
-                
-                sys.exit(-1)
+                print("Project " + project_id + " will not  be deleted")
 
             else:
 
@@ -72,7 +70,25 @@ class main:
 
                 request.execute()
 
-                print("Project "+project_id+" is now shutdown")
+                print("Project " + project_id + " is now shutdown")
+
+        for projects in projects_list:
+
+            project_id = projects
+
+            project_status_request = resource_manager_service.projects().get(projectId=project_id)
+
+            project_status_response = project_status_request.execute()
+
+            project_state = project_status_response.get('lifecycleState')
+
+            if project_state == 'ACTIVE':
+
+                sys.exit(-1)
+
+            else:
+
+                print("Requested projects was deleted successfully")
 
 obj_main = main()
 
