@@ -88,6 +88,10 @@ class main:
             if project_state == 'ACTIVE':
 
                 sys.exit(-1)
+                
+            else:
+                
+                print(project_id+" is deleted now)
 
 obj_main = main()
 
