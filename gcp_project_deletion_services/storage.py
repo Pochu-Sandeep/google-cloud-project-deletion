@@ -18,7 +18,7 @@ class storage:
 
         else:
             
-            print9"Buckets deleted")
+            print("Buckets deleted")
 
             storage_exist = False
 
