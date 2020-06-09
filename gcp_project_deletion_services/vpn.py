@@ -2,7 +2,7 @@ class vpn:
 
     def vpn_list(self, project_id):
 
-        from gcp_project_deletion.variable import service
+        from gcp_project_deletion_services.variable import service
 
         vpn_list_request = service.networks().list(project = project_id)
 
