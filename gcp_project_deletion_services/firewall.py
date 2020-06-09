@@ -18,7 +18,7 @@ class firewall:
 
             if len(firewall_name)>0:
 
-                #firewall_exist = True
+                firewall_exist = True
 
                 firewall_delete_request = service.firewalls().delete(project=project_id, firewall=firewall_name)
 
@@ -30,5 +30,5 @@ class firewall:
 
                 #firewall_exist = False
 
-        return firewall_exist=False
+        return firewall_exist
 
