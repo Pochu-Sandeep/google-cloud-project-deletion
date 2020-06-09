@@ -2,7 +2,7 @@ class main:
 
     def services_exist(self):
 
-        projects = input("Enter project-id/project-id's for deletion :")
+        projects = os.getenv("Project_id")
 
         projects_list = projects.split(",")
 
