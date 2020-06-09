@@ -8,7 +8,7 @@ class storage:
 
         if len(storage_list)>0:
 
-            storage_exist = True
+            #storage_exist = True
 
             for storage_name in storage_list:
 
@@ -17,6 +17,8 @@ class storage:
                 storage_deletion.delete()
 
         else:
+            
+            print9"Buckets deleted")
 
             storage_exist = False
 
