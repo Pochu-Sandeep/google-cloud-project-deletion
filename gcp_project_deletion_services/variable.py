@@ -16,6 +16,4 @@ service_usage_service = discovery.build('serviceusage', 'v1', credentials=creden
 
 storage_client = storage.Client.from_service_account_json(sys.argv[1])
 
-storage_details = storage.Client()
-
 
