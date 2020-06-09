@@ -20,7 +20,7 @@ class disks:
 
             if len(disk_details) > 0:
 
-                disks_exist = True
+                #disks_exist = True
 
                 disk_name_list = [sub['name'] for sub in disk_details]
 
@@ -37,6 +37,8 @@ class disks:
                     disk_delete_response = disk_delete_request.execute()
 
             else:
+                
+                print("Disks deleted")
 
                 disks_exist = False
 
