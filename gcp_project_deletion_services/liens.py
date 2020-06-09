@@ -2,7 +2,7 @@ class liens:
 
     def liens_list(self,project_id):
 
-        from gcp_project_deletion.variable import resource_manager_service
+        from gcp_project_deletion_services.variable import resource_manager_service
 
         request = resource_manager_service.liens().list(parent="projects/"+project_id)
 
