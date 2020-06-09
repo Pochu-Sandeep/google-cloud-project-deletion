@@ -2,7 +2,7 @@ class storage:
 
     def storage_list(self,project_id):
 
-        from gcp_project_deletion.variable import storage_client
+        from gcp_project_deletion_services.variable import storage_client
 
         storage_list = list(storage_client.list_buckets(project=project_id))
 
