@@ -14,13 +14,15 @@ class liens:
 
             if len(lien_name)>0:
                 
-                liens_exist = True
+                #liens_exist = True
 
                 request = resource_manager_service.liens().delete(name=lien_name)
 
                 request.execute()
 
             else:
+                
+                print("liens deleted")
 
                 liens_exist = False
 
