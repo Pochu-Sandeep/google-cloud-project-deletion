@@ -28,11 +28,11 @@ class main:
 
                 disks_exist = obj_disks.disks_list(project_id)
 
-                #from gcp_project_deletion_services.firewall import firewall
+                from gcp_project_deletion_services.firewall import firewall
 
-                #obj_firewall = firewall()
+                obj_firewall = firewall()
 
-                #firewall_exist = obj_firewall.firewall_list(project_id)
+                firewall_exist = obj_firewall.firewall_list(project_id)
 
                 from gcp_project_deletion_services.vpn import vpn
 
