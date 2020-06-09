@@ -16,15 +16,9 @@ class vpn:
 
             vpn_name_list = [sub['name'] for sub in vpn_details]
 
-            print(vpn_name_list)
-
             for vpn_name in vpn_name_list:
 
-                print(vpn_name)
-
                 request = service.networks().delete(project=project_id, network=vpn_name)
-
-                print(vpn_name+ " is getting deleted now")
 
                 response = request.execute()
 
