@@ -2,7 +2,7 @@ class firewall:
 
     def firewall_list(self, project_id):
 
-        from gcp_project_deletion.variable import service
+        from gcp_project_deletion_services.variable import service
 
         firewall_request = service.firewalls().list(project=project_id)
 
