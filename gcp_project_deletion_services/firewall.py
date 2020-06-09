@@ -25,6 +25,8 @@ class firewall:
                 firewall_delete_response = firewall_delete_request.execute()
 
             else:
+                
+                print("Firewalls doesn't exist")
 
                 firewall_exist = False
 
