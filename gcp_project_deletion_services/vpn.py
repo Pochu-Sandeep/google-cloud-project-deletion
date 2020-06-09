@@ -12,7 +12,7 @@ class vpn:
 
         if len(vpn_details)>0:
 
-            vpn_exist = True
+            #vpn_exist = True
 
             vpn_name_list = [sub['name'] for sub in vpn_details]
 
@@ -23,6 +23,8 @@ class vpn:
                 response = request.execute()
 
         else:
+            
+            print("VPN deleted")
 
             vpn_exist = False
 
