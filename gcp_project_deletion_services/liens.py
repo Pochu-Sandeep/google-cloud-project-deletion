@@ -13,6 +13,8 @@ class liens:
             lien_name = lien.get("name")
 
             if len(lien_name)>0:
+                
+                liens_exist = True
 
                 request = resource_manager_service.liens().delete(name=lien_name)
 
