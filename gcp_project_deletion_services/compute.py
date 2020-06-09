@@ -28,8 +28,6 @@ class compute:
 
                 for instance_name in instance_name_list:
 
-                    print("vm "+instance_name +" from zone "+zone_name+" of project "+project_id+" is now getting deleted")
-
                     instance_delete_request = service.instances().delete(project=project_id, zone=zone_name, instance=instance_name)
 
                     instance_delete_response = instance_delete_request.execute()
