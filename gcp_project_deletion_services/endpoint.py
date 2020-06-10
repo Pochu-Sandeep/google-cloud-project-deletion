@@ -36,9 +36,7 @@ class endpoint:
 
         except Exception:
 
-            endpoint_exist = False
-
-        return endpoint_exist
+            print("Endpoint doesn't exist")
 
 
 
