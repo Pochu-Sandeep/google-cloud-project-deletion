@@ -6,7 +6,7 @@ class main:
 
     def services_exist(self):
 
-        projects = input("Enter project id : ")
+        projects = os.getenv("Project_id")
 
         projects_list = projects.split(",")
 
