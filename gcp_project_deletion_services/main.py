@@ -80,7 +80,7 @@ class main:
 
                 if project_status == 'ACTIVE':
 
-                        print(project_id+" is not deleted")
+                        sys.exit(-1)
 
                 else:
 
