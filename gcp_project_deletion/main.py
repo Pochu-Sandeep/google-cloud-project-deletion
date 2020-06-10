@@ -9,6 +9,8 @@ class main:
         projects = os.getenv("Project_id")
 
         projects_list = projects.split(",")
+        
+        project_not_deleted = False
 
         for projects in projects_list:
 
@@ -55,6 +57,8 @@ class main:
             if (instance_exist | disks_exist | firewall_exist | vpn_exist | liens_exist):
 
                 print("Project " + project_id + " will not  be deleted")
+                
+                project_not_deleted = True
 
             else:
                 
@@ -71,26 +75,33 @@ class main:
                 request.execute()
 
                 print("Project " + project_id + " is now shutdown")
-
-        for projects in projects_list:
-
-            project_id = projects
-            
-            from gcp_project_deletion.variable import resource_manager_service
-
-            project_status_request = resource_manager_service.projects().get(projectId=project_id)
-
-            project_status_response = project_status_request.execute()
-
-            project_state = project_status_response.get('lifecycleState')
-
-            if project_state == 'ACTIVE':
+                
+        if project_not_deleted == True:
 
                 sys.exit(-1)
+
+        else:
+                print("All projects got deleted")
+
+        #for projects in projects_list:
+
+            #project_id = projects
+            
+            #from gcp_project_deletion.variable import resource_manager_service
+
+            #project_status_request = resource_manager_service.projects().get(projectId=project_id)
+
+            #project_status_response = project_status_request.execute()
+
+            #project_state = project_status_response.get('lifecycleState')
+
+            #if project_state == 'ACTIVE':
+
+                #sys.exit(-1)
                 
-            else:
+            #else:
                 
-                print(project_id+" is deleted now")
+                #print(project_id+" is deleted now")
 
 obj_main = main()
 
