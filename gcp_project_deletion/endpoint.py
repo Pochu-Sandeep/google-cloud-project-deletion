@@ -38,5 +38,5 @@ class endpoint:
 
             print("Endpoint API doesn't exist")
 
-        return endpoint_exist
+        
 
