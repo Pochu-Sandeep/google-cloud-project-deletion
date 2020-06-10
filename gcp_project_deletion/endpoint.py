@@ -2,7 +2,7 @@ class endpoint:
 
     def endpoint_list(self, project_id):
 
-        from gcp_project_deletion_services.variable import service_usage_service
+        from gcp_project_deletion.variable import service_usage_service
 
         request = service_usage_service.services().list(parent="projects/"+project_id, filter='state:ENABLED')
 
