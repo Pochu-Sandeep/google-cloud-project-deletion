@@ -54,7 +54,7 @@ class main:
 
                 endpoint_exist = obj_endpoint.endpoint_list(project_id)
 
-                if (instance_exist | firewall_exist | vpn_exist | storage_exist | liens_exist | endpoint_exist):
+                if (instance_exist | firewall_exist | vpn_exist | storage_exist | liens_exist):
 
                         print("Project "+project_id+" will not  be deleted")
                         
