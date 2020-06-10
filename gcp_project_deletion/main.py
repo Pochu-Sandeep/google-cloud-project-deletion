@@ -52,17 +52,17 @@ class main:
 
             liens_exist = obj_liens.liens_list(project_id)
 
-            from gcp_project_deletion.endpoint import endpoint
-
-            obj_endpoint = endpoint()
-
-            endpoint_exist = obj_endpoint.endpoint_list(project_id)
-
-            if (instance_exist | disks_exist | firewall_exist | vpn_exist | liens_exist | endpoint_exist):
+            if (instance_exist | disks_exist | firewall_exist | vpn_exist | liens_exist):
 
                 print("Project " + project_id + " will not  be deleted")
 
             else:
+                
+                from gcp_project_deletion.endpoint import endpoint
+
+                obj_endpoint = endpoint()
+
+                endpoint_exist = obj_endpoint.endpoint_list(project_id)
 
                 from gcp_project_deletion.variable import resource_manager_service
 
