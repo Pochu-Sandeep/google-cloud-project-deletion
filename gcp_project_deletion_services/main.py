@@ -9,6 +9,8 @@ class main:
         projects = os.getenv("Project_id")
 
         projects_list = projects.split(",")
+        
+        project_not_deleted = False
 
         for projects in projects_list:
 
@@ -55,8 +57,16 @@ class main:
                 if (instance_exist | firewall_exist | vpn_exist | storage_exist | liens_exist | endpoint_exist):
 
                         print("Project "+project_id+" will not  be deleted")
+                        
+                        project_not_deleted = True
 
                 else:
+                    
+                        from gcp_project_deletion_services.endpoint import endpoint
+
+                        obj_endpoint = endpoint()
+
+                        endpoint_exist = obj_endpoint.endpoint_list(project_id)
 
                         from gcp_project_deletion_services.variable import resource_manager_service
 
@@ -65,26 +75,33 @@ class main:
                         request.execute()
 
                         print("Project "+project_id+" is now shutdown")
+                        
+        if project_not_deleted == True:
 
-        for projects in projects_list:
+                sys.exit(-1)
 
-                project_id = projects
+        else:
+                print("All projects got deleted")
 
-                from gcp_project_deletion_services.variable import resource_manager_service
+        #for projects in projects_list:
 
-                project_status_request = resource_manager_service.projects().get(projectId=project_id)
+                #project_id = projects
 
-                project_status_response = project_status_request.execute()
+                #from gcp_project_deletion_services.variable import resource_manager_service
 
-                project_status = project_status_response.get('lifecycleState')
+                #project_status_request = resource_manager_service.projects().get(projectId=project_id)
 
-                if project_status == 'ACTIVE':
+                #project_status_response = project_status_request.execute()
 
-                        sys.exit(-1)
+                #project_status = project_status_response.get('lifecycleState')
 
-                else:
+                #if project_status == 'ACTIVE':
 
-                        print(project_id+" is deleted")
+                        #sys.exit(-1)
+
+                #else:
+
+                        #print(project_id+" is deleted")
 
 obj_main = main()
 
