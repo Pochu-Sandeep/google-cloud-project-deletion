@@ -2,33 +2,41 @@ class endpoint:
 
     def endpoint_list(self, project_id):
 
-        endpoint_exist = False
-
-        from gcp_project_deletion.variable import service_usage_service
+        from gcp_project_deletion_services.variable import service_usage_service
 
         request = service_usage_service.services().list(parent="projects/"+project_id, filter='state:ENABLED')
 
         response = request.execute()
 
-        for endpoint_details in response.get('services'):
+        endpoint_details = response.get('services')
 
-            endpoint_list = endpoint_details.get('config','')
+        try:
 
-            endpoint_name = endpoint_list.get('name')
+            while len(endpoint_details)>0:
 
-            if len(endpoint_name)>0:
+                endpoint_name_list = [sub['name'] for sub in endpoint_details]
 
-                endpoint_exist = True
+                for endpoint_name in endpoint_name_list:
 
-                break
+                    try:
 
-        if endpoint_exist:
+                        endpoint_disable_request = service_usage_service.services().disable(name=endpoint_name,body={"disableDependentServices":True})
 
-            print("Endpoints exists in project please delete")
+                        endpoint_disable_response = endpoint_disable_request.execute()
 
-        else:
+                    except Exception:
 
-            print("Endpoints doesn't exists in the project")
+                        continue
+
+                request = service_usage_service.services().list(parent="projects/" + project_id, filter='state:ENABLED')
+
+                response = request.execute()
+
+                endpoint_details = response.get('services')
+
+        except Exception:
+
+            endpoint_exist = True
 
         return endpoint_exist
 
