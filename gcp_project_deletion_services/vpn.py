@@ -2,7 +2,7 @@ class vpn:
 
     def vpn_list(self, project_id):
 
-        from gcp_project_deletion_services.variable import service
+        from gcp_project_deletion.variable import service
 
         vpn_list_request = service.networks().list(project = project_id)
 
@@ -12,8 +12,6 @@ class vpn:
 
         if len(vpn_details)>0:
 
-            #vpn_exist = True
-
             vpn_name_list = [sub['name'] for sub in vpn_details]
 
             for vpn_name in vpn_name_list:
@@ -22,11 +20,9 @@ class vpn:
 
                 response = request.execute()
 
-        else:
-            
-            print("VPN deleted")
-
-            vpn_exist = False
+        vpn_exist = False
 
         return vpn_exist
+
+
 

@@ -20,11 +20,7 @@ class compute:
 
             if len(instance_details) > 0:
 
-                #instance_exist = True
-
                 instance_name_list = [sub['name'] for sub in instance_details]
-
-                print(instance_name_list)
 
                 for instance_name in instance_name_list:
 
@@ -32,13 +28,14 @@ class compute:
 
                     instance_delete_response = instance_delete_request.execute()
 
-            else:
-
-                instance_exist = False
-                
-                print("Instance Deleted")
+            instance_exist = False
 
         return instance_exist
+
+
+
+
+
 
 
 

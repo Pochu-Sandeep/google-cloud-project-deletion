@@ -2,13 +2,15 @@ class endpoint:
 
     def endpoint_list(self, project_id):
 
-        from gcp_project_deletion_services.variable import service_usage_service
+        from gcp_project_deletion.variable import service_usage_service
 
         request = service_usage_service.services().list(parent="projects/"+project_id, filter='state:ENABLED')
 
         response = request.execute()
 
         endpoint_details = response.get('services')
+
+        #for len(endpoint_details)>0:
 
         try:
 
@@ -40,7 +42,9 @@ class endpoint:
 
         return endpoint_exist
 
+obj_main = endpoint()
 
+obj_main.endpoint_list("rare-ridge-279913")
 
 
 

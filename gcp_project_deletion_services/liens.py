@@ -12,20 +12,17 @@ class liens:
 
             lien_name = lien.get("name")
 
+            print(lien_name)
+
             if len(lien_name)>0:
-                
-                #liens_exist = True
 
                 request = resource_manager_service.liens().delete(name=lien_name)
 
                 request.execute()
 
-            else:
-                
-                print("liens deleted")
-
-                liens_exist = False
+        liens_exist = False
 
         return liens_exist
+
 
 

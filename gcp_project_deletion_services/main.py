@@ -6,7 +6,7 @@ class main:
 
     def services_exist(self):
 
-        projects = os.getenv("Project_id")
+        projects = input("Enter project id : ")
 
         projects_list = projects.split(",")
 
@@ -14,19 +14,13 @@ class main:
 
                 project_id = projects
 
-                print("Checking for VM's, Disks, VPN and Firewalls in project " + project_id)
+                print("Checking for VM's,Firewalls,VPN,Storage,Liens and Endpoints in project " + project_id)
 
                 from gcp_project_deletion_services.compute import compute
 
                 obj_compute = compute()
 
                 instance_exist = obj_compute.vm_list(project_id)
-
-                from gcp_project_deletion_services.disks import disks
-
-                obj_disks = disks()
-
-                disks_exist = obj_disks.disks_list(project_id)
 
                 from gcp_project_deletion_services.firewall import firewall
 
@@ -52,13 +46,13 @@ class main:
 
                 liens_exist = obj_liens.liens_list(project_id)
 
-                    #from gcp_project_deletion.endpoint import endpoint
+                from gcp_project_deletion_services.endpoint import endpoint
 
-                    #obj_endpoint = endpoint()
+                obj_endpoint = endpoint()
 
-                    #endpoint_exist = obj_endpoint.endpoint_list(project_id)
+                endpoint_exist = obj_endpoint.endpoint_list(project_id)
 
-                if (instance_exist | disks_exist | firewall_exist | vpn_exist | storage_exist | liens_exist):
+                if (instance_exist | firewall_exist | vpn_exist | storage_exist | liens_exist | endpoint_exist):
 
                         print("Project "+project_id+" will not  be deleted")
 
@@ -66,11 +60,11 @@ class main:
 
                         from gcp_project_deletion_services.variable import resource_manager_service
 
-                        request = resource_manager_service.projects().delete(project_Id=project_id)
+                        request = resource_manager_service.projects().delete(projectId=project_id)
 
                         request.execute()
 
-                        print("Project "+project_id+" is shutting down")
+                        print("Project "+project_id+" is now shutdown")
 
         for projects in projects_list:
 
@@ -86,11 +80,11 @@ class main:
 
                 if project_status == 'ACTIVE':
 
-                        sys.exit(-1)
+                        print(project_id+" is not deleted")
 
                 else:
 
-                        print(project_id+" is now deleted")
+                        print(project_id+" is deleted")
 
 obj_main = main()
 

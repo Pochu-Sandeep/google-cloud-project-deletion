@@ -8,27 +8,21 @@ class firewall:
 
         firewall_response = firewall_request.execute()
 
-        print(len(firewall_response))
+        firewall_details = firewall_response.get("items", "")
 
-        for firewall_details in firewall_response.get("items", ""):
+        firewall_name_list = [sub['name'] for sub in firewall_details]
 
-            print(len(firewall_details))
+        if len(firewall_name_list)>0:
 
-            firewall_name = firewall_details.get("name")
-
-            if len(firewall_name)>0:
-
-                #firewall_exist = True
+            for firewall_name in firewall_name_list:
 
                 firewall_delete_request = service.firewalls().delete(project=project_id, firewall=firewall_name)
 
                 firewall_delete_response = firewall_delete_request.execute()
 
-            else:
-                
-                print("Firewalls doesn't exist")
-
-                firewall_exist = False
+        firewall_exist = False
 
         return firewall_exist
+
+
 
