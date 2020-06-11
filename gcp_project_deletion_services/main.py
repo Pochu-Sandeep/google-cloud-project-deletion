@@ -83,26 +83,6 @@ class main:
         else:
                 print("All projects got deleted")
 
-        #for projects in projects_list:
-
-                #project_id = projects
-
-                #from gcp_project_deletion_services.variable import resource_manager_service
-
-                #project_status_request = resource_manager_service.projects().get(projectId=project_id)
-
-                #project_status_response = project_status_request.execute()
-
-                #project_status = project_status_response.get('lifecycleState')
-
-                #if project_status == 'ACTIVE':
-
-                        #sys.exit(-1)
-
-                #else:
-
-                        #print(project_id+" is deleted")
-
 obj_main = main()
 
 obj_main.services_exist()
