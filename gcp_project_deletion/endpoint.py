@@ -14,8 +14,7 @@ class endpoint:
 
         from gcp_project_deletion.variable import service_usage_service
 
-        request = service_usage_service.services().get(
-            name="projects/" + project_number + "/services/" + service_usage_api)
+        request = service_usage_service.services().get(name="projects/" + project_number + "/services/" + service_usage_api)
 
         response = request.execute()
 
