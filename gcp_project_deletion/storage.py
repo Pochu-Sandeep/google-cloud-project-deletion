@@ -10,8 +10,6 @@ class storage:
 
         project_number = get_project_response.get('projectNumber')
 
-        print(project_number)
-
         storage_api = "storage-component.googleapis.com"
 
         from gcp_project_deletion.variable import service_usage_service
@@ -22,8 +20,6 @@ class storage:
         response = request.execute()
 
         storage_api_status = response.get('state')
-
-        print(storage_api_status)
 
         if storage_api_status == 'DISABLED':
             endpoint_enable_request = service_usage_service.services().enable(
