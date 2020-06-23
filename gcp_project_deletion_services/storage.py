@@ -14,8 +14,7 @@ class storage:
 
         from gcp_project_deletion_services.variable import service_usage_service
 
-        request = service_usage_service.services().get(
-            name="projects/" + project_number + "/services/" + storage_api)
+        request = service_usage_service.services().get(name="projects/" + project_number + "/services/" + storage_api)
 
         response = request.execute()
 
