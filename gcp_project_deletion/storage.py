@@ -14,16 +14,15 @@ class storage:
 
         from gcp_project_deletion.variable import service_usage_service
 
-        request = service_usage_service.services().get(
-            name="projects/" + project_number + "/services/" + storage_api)
+        request = service_usage_service.services().get(name="projects/" + project_number + "/services/" + storage_api)
 
         response = request.execute()
 
         storage_api_status = response.get('state')
 
         if storage_api_status == 'DISABLED':
-            endpoint_enable_request = service_usage_service.services().enable(
-                name="projects/" + project_number + "/services/" + storage_api)
+            
+            endpoint_enable_request = service_usage_service.services().enable(name="projects/" + project_number + "/services/" + storage_api)
 
             endpoint_enable_response = endpoint_enable_request.execute()
 
