@@ -10,8 +10,6 @@ class endpoint:
 
         project_number = get_project_response.get('projectNumber')
 
-        print(project_number)
-
         service_usage_api = "serviceusage.googleapis.com"
 
         from gcp_project_deletion.variable import service_usage_service
@@ -23,11 +21,9 @@ class endpoint:
 
         storage_api_status = response.get('state')
 
-        print(storage_api_status)
-
         if storage_api_status == 'DISABLED':
-            endpoint_enable_request = service_usage_service.services().enable(
-                name="projects/" + project_number + "/services/" + service_usage_api)
+            
+            endpoint_enable_request = service_usage_service.services().enable(name="projects/" + project_number + "/services/" + service_usage_api)
 
             endpoint_enable_response = endpoint_enable_request.execute()
 
