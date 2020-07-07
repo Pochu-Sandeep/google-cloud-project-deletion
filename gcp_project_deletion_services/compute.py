@@ -1,3 +1,5 @@
+import time
+
 class compute:
 
     def vm_list(self, project_id):
