@@ -30,7 +30,7 @@ class compute:
 
             print(endpoint_enable_response)
 
-            time.sleep(600)
+            time.sleep(300)
 
         from gcp_project_deletion.variable import service
 
