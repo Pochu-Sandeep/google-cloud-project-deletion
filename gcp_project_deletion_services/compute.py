@@ -22,8 +22,6 @@ class compute:
 
         compute_engine_api_status = response.get('state')
 
-        print(compute_engine_api_status)
-
         if compute_engine_api_status == 'DISABLED':
 
             endpoint_enable_request = service_usage_service.services().enable(name="projects/" + project_number + "/services/" + compute_engine_api)
