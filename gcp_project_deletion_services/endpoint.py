@@ -60,7 +60,7 @@ class endpoint:
 
         except Exception:
 
-            print("Endpoint doesn't exist")
+            print("")
             
 
 
